@@ -33,7 +33,7 @@ choices = ["down", "up", "left", "right", "fire", "stop", "CarForward", "CarBack
 #PROGRAM TO STOP THE USB CANNON
 def cannon_stops():
     time.sleep(0.1)
-    device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, stop, 0x00,0x00,0x00,0x00,0x00,0x00])
+    device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, stops, 0x00,0x00,0x00,0x00,0x00,0x00])
   
 # message to be displayed AND LOAD THE IMAGE
 msg= "Click on the following buttons"
@@ -54,7 +54,7 @@ while inp != "None": #happens when the user presses ESC
     elif inp == "left":
         call(['espeak "Left"'], shell=True)
         device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, lefts, 0x00,0x00,0x00,0x00,0x00,0x00])
-        stops()
+        cannon_stops()
     elif inp == "right":
         call(['espeak "Right"'], shell=True)
         device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, rights, 0x00,0x00,0x00,0x00,0x00,0x00])
