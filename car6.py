@@ -17,12 +17,12 @@ except Exception:
   pass # already unregistered  
 device.set_configuration()  
 endpoint = device[0][(0,0)][0]  
-down = 1 # down  
-up = 2 # up  
-left = 4 # rotate left  
-right = 8 # rotate right  
-fire = 16 # fire  
-stop = 32 # stop  
+downs = 1 # down  
+ups = 2 # up  
+lefts = 4 # rotate left  
+rights = 8 # rotate right  
+fires = 16 # fire  
+stops = 32 # stop  
 #device.ctrl_transfer(0x21, 0x09, 0x0200, 0, [signal])
 #END MISSILE CODE
 
@@ -45,28 +45,28 @@ while inp != "None": #happens when the user presses ESC
     
     if inp == "down":
         call(['espeak "Down"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, down, 0x00,0x00,0x00,0x00,0x00,0x00])
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, downs, 0x00,0x00,0x00,0x00,0x00,0x00])
         cannon_stops()
     elif inp == "up":
         call(['espeak "Up"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, up, 0x00,0x00,0x00,0x00,0x00,0x00])
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, ups, 0x00,0x00,0x00,0x00,0x00,0x00])
         cannon_stops()
     elif inp == "left":
         call(['espeak "Left"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, left, 0x00,0x00,0x00,0x00,0x00,0x00])
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, lefts, 0x00,0x00,0x00,0x00,0x00,0x00])
         stops()
     elif inp == "right":
         call(['espeak "Right"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, right, 0x00,0x00,0x00,0x00,0x00,0x00])
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, rights, 0x00,0x00,0x00,0x00,0x00,0x00])
         cannon_stops()
     elif inp == "fire":
         call(['espeak "Fire"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, fire, 0x00,0x00,0x00,0x00,0x00,0x00])  
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, fires, 0x00,0x00,0x00,0x00,0x00,0x00])  
         time.sleep(4)
         cannon_stops()
     elif inp == "stop":
         call(['espeak "Stop"'], shell=True)
-        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, stop, 0x00,0x00,0x00,0x00,0x00,0x00])
+        device.ctrl_transfer(0x21, 0x09, 0, 0, [0x02, stops, 0x00,0x00,0x00,0x00,0x00,0x00])
 
     elif inp =="CarForward": # If user entered 'Forward' move forward for 2 sec then stops
         fwd()
