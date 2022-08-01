@@ -1,0 +1,1 @@
+sudo idle3

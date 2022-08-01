@@ -1,0 +1,12 @@
+Double click and run the script file IDLDE_as_root prior to running any code. This will ensure that all code is run as a sudo (super admin)
+Double click setup.sh if there are errors due to missing installation files
+
+car6.py
+
+- ensure that the cannon is connected to the USB first prior to running the code. Otherwise there will be an error.
+- car6.py - controls the car and the cannon
+
+ultrasonicsensortest.py
+- This tests the ultrasonic sensor and the temperature / humidity sensor 
+- There is no need to connect the cannon for this one.
+- Connect the Ultrasonic sensor to D2 and the temperature sensor to D4
